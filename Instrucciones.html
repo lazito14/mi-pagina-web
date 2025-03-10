@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página con Código Secreto</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #image-container {
+            display: none;
+            margin-top: 20px;
+        }
+        #image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2>Introduce el código secreto</h2>
+    <input type="text" id="code" placeholder="Código">
+    <button onclick="checkCode()">Acceder</button>
+</div>
+
+<div id="image-container">
+    <img id="forestImage" src="" alt="Imagen del bosque">
+</div>
+
+<script>
+    function checkCode() {
+        var code = document.getElementById("code").value;
+        var imageContainer = document.getElementById("image-container");
+        var forestImage = document.getElementById("forestImage");
+
+        if (code === "bosquefeliz") {
+            forestImage.src = "https://example.com/imagen_bosque_feliz.jpg";  // Cambia esta URL por la imagen del bosque feliz
+            imageContainer.style.display = "block";
+        } else if (code === "bosqueoscuro") {
+            forestImage.src = "https://example.com/imagen_bosque_oscuro.jpg";  // Cambia esta URL por la imagen del bosque oscuro de terror
+            imageContainer.style.display = "block";
+        } else {
+            alert("Código incorrecto. Intenta de nuevo.");
+            imageContainer.style.display = "none";  // Oculta la imagen si el código es incorrecto
+        }
+    }
+</script>
+
+</body>
+</html>
